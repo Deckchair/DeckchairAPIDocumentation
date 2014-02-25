@@ -179,7 +179,7 @@ Optional `to`/`from`/`by` search range and grouping parameters.
 	*	*Format*: Unixtime
 	*	*Default*: Now
 *	`by` Group the results by specifying a 'by' unit
-	*	*Format*: `hour`|`day`|`week`|`month`|`year`
+	*	*Format*: [`hour`|`day`|`week`|`month`|`year`]
 	*	*Default*: `hour`
 
 
@@ -270,6 +270,44 @@ http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/timeline?from=123
 
 
 
+
+#### \*\*\*UNRELEASED\*\*\* GET.Camera/Videos ####
+`http://v2.api.deckchair.com/v1/camera/:id/videos[?[from=123456]&[to=123456]&[type=timelapse]]`
+
+Retreives a list of videos (timelapse and video recordings) taken by a camera. Optional `to`/`from` search range parameters.
+
+**Request:**
+
+*	`from` Limit the results by specifying a 'from' datetime.
+	*	*Format*: Unixtime
+	*	*Default*: Now - 24 hours
+*	`to` Limit the results by specifying a 'to' datetime.
+	*	*Format*: Unixtime
+	*	*Default*: Now
+*	`type` Limit the results by specifying a 'type'.
+	*	*Format*: [`recording`|`timelapse`]
+	*	*Default*: Empty (show all)
+
+**Response: [Array]**
+
+TBC
+
+```
+## Example Request
+http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/videos
+
+http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/videos?from=12345&to=12345&type=timelapse
+
+TBC
+```
+
+
+
+---
+
+
+
+
 #### GET.Image ####
 `http://v2.api.deckchair.com/v1/image/:id
 
@@ -315,6 +353,34 @@ http://v2.api.deckchair.com/v1/image/5301a23a5b09c11ebaa8bd44
 ---
 
 
+#### \*\*\*UNRELEASED\*\*\* GET.Video ####
+`http://v2.api.deckchair.com/v1/video/:id
+
+Retrieves details for a single video.
+	
+**Response: [Object]**
+
+*	`_id` Video ID
+	*	*Format*: String
+*	`active` If the video is available this will be true
+	*	*Format*: Boolean
+*	`taken` DateTime that the video was taken
+	*	*Format*: ISO Date
+*	`camera` Camera object the video relates to
+	*	*Format*: Object
+
+
+```
+## Example Request
+http://v2.api.deckchair.com/v1/video/2345235634523453456
+
+TBC
+```
+
+
+---
+
+
 #### GET.Viewer/Image ####
 `http://v2.api.deckchair.com/v1/viewer/image/:id
 
@@ -342,10 +408,10 @@ In the event of heavy traffic we have proprietary algorithms that will keep a we
 	*	*Format*: Integer [1-7000]
 	*	*Default*: 900
 *	`resizeMode` Resize the image to 'fill' or 'fit' within the width and height. 'Fill' will crop when necessary
-	*	*Format*: `fill`|`fit`
+	*	*Format*: [`fill`|`fit`]
 	*	*Default*: `fit`
 *	`gravity` If `resizeMode` is set to `fill` the image will be cropped. This value allows you to set the area of the image to focus on before cropping.
-	*	*Format*: `Center`|`North`|`NorthEast`|`NorthWest`|`South`|`SouthEast`|`SouthWest`
+	*	*Format*: [`Center`|`North`|`NorthEast`|`NorthWest`|`South`|`SouthEast`|`SouthWest`]
 	*	*Default*: `Center`
 *	`quality` Image quality, file size will be influenced by this value
 	*	*Format*: Integer [0-100]
@@ -392,10 +458,10 @@ This request redirects to the `viewer/camera` endpoint passing the querystring w
 	*	*Format*: Integer [1-7000]
 	*	*Default*: 900
 *	`resizeMode` Resize the image to 'fill' or 'fit' within the width and height. 'Fill' will crop when necessary
-	*	*Format*: `fill`|`fit`
+	*	*Format*: [`fill`|`fit`]
 	*	*Default*: `fit`
 *	`gravity` If `resizeMode` is set to `fill` the image will be cropped. This value allows you to set the area of the image to focus on before cropping.
-	*	*Format*: `Center`|`North`|`NorthEast`|`NorthWest`|`South`|`SouthEast`|`SouthWest`
+	*	*Format*: [`Center`|`North`|`NorthEast`|`NorthWest`|`South`|`SouthEast`|`SouthWest`]
 	*	*Default*: `Center`
 *	`quality` Image quality, file size will be influenced by this value
 	*	*Format*: Integer [0-100]
@@ -436,6 +502,39 @@ Returns a HTML page containing the Deckchair Widget intended to be IFramed withi
 http://v2.api.deckchair.com/v1/widget/52faa4c7ad5b86bc2a267cd3
 ```
 
+
+
+
+## Miscellaneous ##
+---
+
+#### Domain throttling workaround ####
+
+By default browsers will only open a limited number of connections to a single server, despite our servers being very capable of sustaining more. If you wish to display lots of images in a timeline on a single page it is recommended you split your requests over a number of domains.
+
+We support API calls to the following domains:
+
+*	http://v2.api.deckchair.com
+*	http://v2.api.a.deckchair.com
+*	http://v2.api.b.deckchair.com
+*	http://v2.api.c.deckchair.com
+*	http://v2.api.d.deckchair.com
+
+We are developing an open-source client-side library to assist the utilisation of multiple domains that takes into account browser caching.
+
+
+#### HTTPS Support ####
+
+We do have HTTP support. Contact us at mail@deckchair.com to find out more.
+
+
+#### NoCookie Domain Support ####
+
+We are looking into the performance benefits of domain-wide 'NoCookie' support. If you have such a requirement contact us at mail@deckchair.com to discuss further.
+
+
+
+---
 
 
 
