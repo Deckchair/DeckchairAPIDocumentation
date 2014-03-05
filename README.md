@@ -1,4 +1,4 @@
-## Deckchair V2 :: API Documentation [Draft 0.2-WIP] ##
+## Deckchair :: API Documentation [Draft 0.3-WIP] ##
 
 ---
 
@@ -10,7 +10,7 @@
 
 
 #### GET.Cameras ####
-`http://v2.api.deckchair.com/v1/cameras`
+`http://api.deckchair.com/v1/cameras`
 
 Lists out all cameras. Will have a fulltext search parameter to support the desktop app currently under development.
 
@@ -34,7 +34,7 @@ Lists out all cameras. Will have a fulltext search parameter to support the desk
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/cameras
+http://api.deckchair.com/v1/cameras
 
 {
 	"success": true,
@@ -67,7 +67,7 @@ http://v2.api.deckchair.com/v1/cameras
 
 
 #### GET.Camera ####
-`http://v2.api.deckchair.com/v1/camera/:id`
+`http://api.deckchair.com/v1/camera/:id`
 
 Retreives detailed information about a camera.
 
@@ -91,7 +91,7 @@ Retreives detailed information about a camera.
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3
+http://api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3
 
 {
 	"success": true,
@@ -113,7 +113,7 @@ http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3
 
 
 #### GET.Camera/Images ####
-`http://v2.api.deckchair.com/v1/camera/:id/images[?[from=123456]&[to=123456]]`
+`http://api.deckchair.com/v1/camera/:id/images[?[from=123456]&[to=123456]]`
 
 Retreives a list of images taken by a camera. Optional `to`/`from` search range parameters.
 
@@ -135,9 +135,9 @@ Retreives a list of images taken by a camera. Optional `to`/`from` search range 
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/images
+http://api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/images
 
-http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/images?from=12345&to=12345
+http://api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/images?from=12345&to=12345
 
 {
 	"success": true,
@@ -164,7 +164,7 @@ http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/images?from=12345
 
 
 #### GET.Camera/Timeline ####
-`http://v2.api.deckchair.com/v1/camera/:id/timeline[?[from=123456]&[to=123456]]`
+`http://api.deckchair.com/v1/camera/:id/timeline[?[from=123456]&[to=123456]]`
 
 Retreives an overview of images taken by a camera grouped and by a unit of time. Very useful for retrieving information about images which would otherwise require large amounts of data to be transferred using the `/images` call. Especially useful for overviews of a long period of time, e.g. months or years.
 
@@ -195,9 +195,9 @@ Optional `to`/`from`/`by` search range and grouping parameters.
 	
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/timeline
+http://api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/timeline
 
-http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/timeline?from=12345&to=12345&by=hour
+http://api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/timeline?from=12345&to=12345&by=hour
 
 {
     "success": true,
@@ -272,7 +272,7 @@ http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/timeline?from=123
 
 
 #### \*\*\*UNRELEASED\*\*\* GET.Camera/Videos ####
-`http://v2.api.deckchair.com/v1/camera/:id/videos[?[from=123456]&[to=123456]&[type=timelapse]]`
+`http://api.deckchair.com/v1/camera/:id/videos[?[from=123456]&[to=123456]&[type=timelapse]]`
 
 Retreives a list of videos (timelapse and video recordings) taken by a camera. Optional `to`/`from` search range parameters.
 
@@ -294,9 +294,9 @@ TBC
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/videos
+http://api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/videos
 
-http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/videos?from=12345&to=12345&type=timelapse
+http://api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3/videos?from=12345&to=12345&type=timelapse
 
 TBC
 ```
@@ -309,7 +309,7 @@ TBC
 
 
 #### GET.Image ####
-`http://v2.api.deckchair.com/v1/image/:id
+`http://api.deckchair.com/v1/image/:id
 
 Retrieves details for a single image.
 	
@@ -327,7 +327,7 @@ Retrieves details for a single image.
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/image/5301a23a5b09c11ebaa8bd44
+http://api.deckchair.com/v1/image/5301a23a5b09c11ebaa8bd44
 
 {
     "success": true,
@@ -354,7 +354,7 @@ http://v2.api.deckchair.com/v1/image/5301a23a5b09c11ebaa8bd44
 
 
 #### \*\*\*UNRELEASED\*\*\* GET.Video ####
-`http://v2.api.deckchair.com/v1/video/:id
+`http://api.deckchair.com/v1/video/:id
 
 Retrieves details for a single video.
 	
@@ -372,7 +372,7 @@ Retrieves details for a single video.
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/video/2345235634523453456
+http://api.deckchair.com/v1/video/2345235634523453456
 
 TBC
 ```
@@ -382,7 +382,7 @@ TBC
 
 
 #### GET.Viewer/Image ####
-`http://v2.api.deckchair.com/v1/viewer/image/:id
+`http://api.deckchair.com/v1/viewer/image/:id
 
 Returns an image file.
 
@@ -428,11 +428,11 @@ In the event of heavy traffic we have proprietary algorithms that will keep a we
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=800&height=600&resizeMode=fill
+http://api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=800&height=600&resizeMode=fill
 
-http://v2.api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=800&height=7000&resizeMode=fit
+http://api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=800&height=7000&resizeMode=fit
 
-http://v2.api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=1800&height=900&resizeMode=fill&gravity=Center&quality=90&panelMode=true&format=jpg
+http://api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=1800&height=900&resizeMode=fill&gravity=Center&quality=90&panelMode=true&format=jpg
 ```
 
 
@@ -441,7 +441,7 @@ http://v2.api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=1800&
 
 
 #### GET.Viewer/Camera ####
-`http://v2.api.deckchair.com/v1/viewer/camera/:id
+`http://api.deckchair.com/v1/viewer/camera/:id
 
 Returns an image file.
 
@@ -478,11 +478,11 @@ This request redirects to the `viewer/camera` endpoint passing the querystring w
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=800&height=600&resizeMode=fill
+http://api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=800&height=600&resizeMode=fill
 
-http://v2.api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=800&height=7000&resizeMode=fit
+http://api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=800&height=7000&resizeMode=fit
 
-http://v2.api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=1800&height=900&resizeMode=fill&gravity=Center&quality=90&panelMode=true&format=jpg
+http://api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=1800&height=900&resizeMode=fill&gravity=Center&quality=90&panelMode=true&format=jpg
 ```
 
 
@@ -491,7 +491,7 @@ http://v2.api.deckchair.com/v1/viewer/image/5301a23a5b09c11ebaa8bd44?width=1800&
 
 
 #### GET.Widget ####
-`http://v2.api.deckchair.com/v1/widget/:id`
+`http://api.deckchair.com/v1/widget/:id`
 
 Returns a HTML page containing the Deckchair Widget intended to be IFramed within a website. The camera ID is required in the URL.
 	
@@ -499,7 +499,7 @@ Returns a HTML page containing the Deckchair Widget intended to be IFramed withi
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/widget/52faa4c7ad5b86bc2a267cd3
+http://api.deckchair.com/v1/widget/52faa4c7ad5b86bc2a267cd3
 ```
 
 
@@ -514,11 +514,11 @@ By default browsers will only open a limited number of connections to a single s
 
 We support API calls to the following domains:
 
-*	http://v2.api.deckchair.com
-*	http://v2.api.a.deckchair.com
-*	http://v2.api.b.deckchair.com
-*	http://v2.api.c.deckchair.com
-*	http://v2.api.d.deckchair.com
+*	http://api.deckchair.com
+*	http://api.a.deckchair.com
+*	http://api.b.deckchair.com
+*	http://api.c.deckchair.com
+*	http://api.d.deckchair.com
 
 We are developing an open-source client-side library to assist the utilisation of multiple domains that takes into account browser caching.
 
@@ -555,7 +555,7 @@ The expected callback parameter is  `callback`. Keeping your callback value the 
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3?callback=deckchairCameraCallback
+http://api.deckchair.com/v1/camera/52faa4c7ad5b86bc2a267cd3?callback=deckchairCameraCallback
 
 typeof deckchairCameraCallback === 'function' && deckchairCameraCallback({
 	"success": true,
@@ -590,10 +590,10 @@ Add an origin parameter to the query string of your URL request with the value o
 
 ```
 ## Example Request
-http://v2.api.deckchair.com/v1/camera/12345?origin=http_mydomain.com
+http://api.deckchair.com/v1/camera/12345?origin=http_mydomain.com
 -
 ## Example Request with HTTPS origin
-http://v2.api.deckchair.com/v1/camera/12345?origin=https_mysecuredomain.com
+http://api.deckchair.com/v1/camera/12345?origin=https_mysecuredomain.com
 
 ## Response Headers
 Access-Control-Allow-Headers: X-Requested-With
